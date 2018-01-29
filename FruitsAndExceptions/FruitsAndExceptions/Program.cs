@@ -37,8 +37,8 @@ namespace FruitsAndExceptions
                 {
                     string fruit = s.Remove(s.IndexOf(","));
                     fruit = fruit.Substring(fruit.IndexOf(":")+1);
-                    Console.WriteLine(s);
-                    Console.WriteLine(fruit);
+                    string color = s.Remove(0, s.IndexOf(",colour:")+8);
+                    Console.WriteLine("The fruit {0} is {1}",fruit,color);
                 }
             }
                                            

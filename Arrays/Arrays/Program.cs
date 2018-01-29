@@ -53,11 +53,18 @@ namespace Arrays
              * a new array with the same size and copy over the values to it.
              * 
              * Create two arrays with arbitrary sizes and fill them with random numbers. Then make a new array with
-             * the combined size of the two previous arrays and copy the values into it.             *              * Create two arrays with arbitrary sizes and fill them with random numbers. Then copy over the numbers
+             * the combined size of the two previous arrays and copy the values into it.
+             * 
+             * Create two arrays with arbitrary sizes and fill them with random numbers. Then copy over the numbers
              * so that the even numbers are located in the rear (the right side) part of the array and the odd numbers are
-             * located in the front part (the left side).             */
+             * located in the front part (the left side).
+             */
 
-            PrintExerciseExtra(35, 37, "Array input, copying, sorting and randomizer.");            Console.Write("Enter value: ");            x = Int32.Parse(Console.ReadLine());            int[] randomArrayA = new int[x];
+            PrintExerciseExtra(35, 37, "Array input, copying, sorting and randomizer.");
+
+            Console.Write("Enter value: ");
+            x = Int32.Parse(Console.ReadLine());
+            int[] randomArrayA = new int[x];
             int[] randomArrayB = new int[x];
             int[] randomArrayC = new int[x * 2];
             int[] tempArray = new int[x * 2];
@@ -69,16 +76,27 @@ namespace Arrays
             {
                 randomArrayA[i] = r.Next(99);
                 Console.WriteLine(randomArrayA[i]);
-            }            Console.WriteLine("Array B");            for (int i = 0; i < x; i++)
+            }
+
+            Console.WriteLine("Array B");
+
+            for (int i = 0; i < x; i++)
             {
                 randomArrayB[i] = r.Next(99);
                 Console.WriteLine(randomArrayB[i]);
-            }            Console.WriteLine("Array C");            randomArrayA.CopyTo(randomArrayC, 0);            randomArrayB.CopyTo(randomArrayC, x);
+            }
+
+            Console.WriteLine("Array C");
+
+            randomArrayA.CopyTo(randomArrayC, 0);
+            randomArrayB.CopyTo(randomArrayC, x);
 
             for (int i = 0; i < x * 2; i++)
             {
                 Console.WriteLine(randomArrayC[i]);
-            }            Console.WriteLine("Array sorted");
+            }
+
+            Console.WriteLine("Array sorted");
 
             for (int i = 0; i < x * 2; i++)
             {
@@ -92,10 +110,16 @@ namespace Arrays
                     tempArray[iterationsOdd] = randomArrayC[i];
                     iterationsOdd++;
                 }
-            }            for (int i = 0; i < x * 2; i++)
+            }
+
+            for (int i = 0; i < x * 2; i++)
             {
                 Console.WriteLine(tempArray[i]);
-            }            Console.ReadKey();
+            }
+
+
+            Console.ReadKey();
+
             /* (Exercise 39)
              * Create two arrays with equal sizes. One should contain username and one should contain passwords.
              * Let the user try to input a username and a password and match it against the arrays. If he types in a correct
@@ -148,15 +172,31 @@ namespace Arrays
 
             /* (Exercise 40)
              * Let the user input a string with numbers comma separated like “1,2,34,83,19,45” then separate the
-             * numbers into an array and find the min, max and average value. Print these out to the screen. Tip: use the Splitfunction.             */
+             * numbers into an array and find the min, max and average value. Print these out to the screen. Tip: use the Splitfunction.
+             */
 
-            PrintExercise(40, "String manipulation into arrays.");            Console.WriteLine("Example string: 2,4,5,9,3,8,4");            Console.Write("Enter string:");
+            PrintExercise(40, "String manipulation into arrays.");
 
-            int min = int.MaxValue, max = int.MinValue, average = 0;            string[] strNumberArray = Console.ReadLine().Split(',');            foreach (string s in strNumberArray)
+            Console.WriteLine("Example string: 2,4,5,9,3,8,4");
+            Console.Write("Enter string:");
+
+            int min = int.MaxValue, max = int.MinValue, total = 0;
+            double average = 0;
+            string[] strNumberArray = Console.ReadLine().Split(',');
+
+            foreach (string s in strNumberArray)
             {
 
-                Int32.TryParse(s);
-            }            
+                int temp = Int32.Parse(s);
+                total += temp;
+                if (temp > max) max = temp;
+                if (temp < min) min = temp;
+
+            }
+
+            average = (double)total / strNumberArray.Length;
+
+            Console.WriteLine("RESULTS\nmin:{0}\nmax:{1}\naverage:{2}",min,max,average);
 
         }
 
