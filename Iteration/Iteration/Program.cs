@@ -70,9 +70,9 @@ namespace Iteration
                 for(int i = 1; i < 11; i++)
                 {
                     if (i * y < 10) {
-                        Console.Write("  ");
+                       Console.Write("  ");
                     } else {
-                        Console.Write(" ");
+                       Console.Write(" ");
                     }
                     Console.Write(i*y);
                 }
