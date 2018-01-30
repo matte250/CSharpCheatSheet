@@ -15,6 +15,8 @@ namespace FruitsAndExceptions
              * }]”, extract the fruits and their colour and display it to the user like: “The fruit pear is green”
              */
 
+            PrintExercise(43, "Fruits and colors.");
+
             int arrayLength = 0;
             string[] fruitsAndColors = new string[100];
             string str = "[ { fruit: pear , colour: green }, { fruit: orange, colour: orange },{" +
@@ -44,6 +46,18 @@ namespace FruitsAndExceptions
                                            
 
 
+        }
+
+        public static void PrintExercise(int x, string desc)
+        {
+            // Printing format for exercise descriptions.
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("(Exercise {0}) ", x);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(desc);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine(String.Concat(Enumerable.Repeat("- ", 20)));
         }
     }
 }

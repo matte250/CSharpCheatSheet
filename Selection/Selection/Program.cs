@@ -10,17 +10,23 @@ namespace Selection
     {
         static void Main(string[] args)
         {
-            String str, strTemp = "";
+            string str, strTemp = "";
             int temp;
-            
+
             // (Exercise 12) Ask the user to input a name. If the name is Bob or Alice, then display "Hi Bob!" or "Hi Alice!".
+
+            PrintExercise(12, "Simple selection.");
 
             Console.Write("Enter name: ");
             str = Console.ReadLine().ToLower();
             if (str.Contains("bob")) Console.WriteLine("Hi Bob!");
             if (str.Contains("alice")) Console.WriteLine("Hi Alice!");
 
+            Console.ReadKey();
+
             // (Exercise 13) Ask the user to input a number. If that number is divesible by 4, then display the result.
+
+            PrintExercise(13, "Modulus selection.");
 
             Console.Write("Enter a number divisible by 4: ");
             temp = Int32.Parse(Console.ReadLine());
@@ -33,8 +39,12 @@ namespace Selection
                 Console.WriteLine("Your number isnt divisble by 4.");
             }
 
+            Console.ReadKey();
+
             // (Exercise 14) Ask the user to input some text. If that text includes the word "city", then display at what position the word
             // occures in the text.
+
+            PrintExercise(14, "String selection.");
 
             temp = 0;
             Console.Write("Write any sentence: ");
@@ -63,10 +73,13 @@ namespace Selection
             {
                 Console.WriteLine("Your sentence has no occurences of the word \"city\".");
             }
-       
+
+            Console.ReadKey();
 
             // (Exercise 15) Ask the user to input some text. Check if the length of the text excedes 25 characters.
             // Display result.
+
+            PrintExercise(15, "String length selection.");
 
             Console.Write("Input text: ");
             str = Console.ReadLine();
@@ -74,10 +87,13 @@ namespace Selection
                 Console.WriteLine("Your input excedes 25 characters.");
             else
                 Console.WriteLine("Your input does not excede 25 characters.");
-           
+
+            Console.ReadKey();
 
             // (Exercise 16) Display three different options for the user to choose from. Clear the console then display a different
             // message deepending on the option. Display also a message if the choice is invalid.
+
+            PrintExercise(16, "String case selection.");
 
             Console.WriteLine("Input one of these following options.\n" +
                 "1. Option 1\n" +
@@ -105,10 +121,13 @@ namespace Selection
                     break;
 
             }
-            
+
+            Console.ReadKey();
 
             // (Exercise 17) Ask the user to input two intergers A and B. Then show results of A+B, A*B, A/B.
             // Dont let user divide by zero.
+
+            PrintExercise(17, "Simple math selection.");
 
             Console.Write("Input value A: ");
             int a = Int32.Parse(Console.ReadLine());
@@ -127,10 +146,12 @@ namespace Selection
                 Console.WriteLine("A / B = N/A(Cant divide by 0)");
             }
 
-            
+            Console.ReadKey();
 
             // (Exercise 18) Ask the user to input a number, then check if the number is higher or equal than 10 and less or equal than 20.
             // Display the result.
+
+            PrintExercise(18, "Simple range selection.");
 
             Console.Write("Input value: ");
             temp = Int32.Parse(Console.ReadLine());
@@ -145,10 +166,13 @@ namespace Selection
             {
                 Console.WriteLine("Value is higher than 20.");
             }
-            
+
+            Console.ReadKey();
 
             // (Exercise 19) Ask the user to input a color, then do a switch statent to see if that color exists. If it does, change the
             // console color and print a message of the color.
+
+            PrintExercise(19, "Color case selction.");
 
             Console.Write("Write the name of a color: ");
             str = Console.ReadLine();
@@ -203,7 +227,21 @@ namespace Selection
             Console.WriteLine(Console.ForegroundColor.ToString().ToUpper() + "!");
             Console.ForegroundColor = ConsoleColor.Gray;
 
+            Console.ReadKey();
 
         }
+
+        public static void PrintExercise(int x, string desc)
+        {
+            // Printing format for exercise descriptions.
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("(Exercise {0}) ", x);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(desc);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine(String.Concat(Enumerable.Repeat("- ", 20)));
+        }
+
     }
 }

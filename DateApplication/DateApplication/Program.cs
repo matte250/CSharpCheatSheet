@@ -23,6 +23,8 @@ namespace DateApplication
              * When you done, try do it with DateTime.Parse to see the difference.
              */
 
+            PrintExercise(41,"Dateformating.");
+
             ci = new CultureInfo("en-UK");
             stringDateArray = new string[100];
             dateLength = 0;
@@ -68,6 +70,18 @@ namespace DateApplication
             stringDateArray[dateLength] = day + end + " " + DateTime.Parse(date).ToString("y", ci);
             dateLength++;
 
+        }
+
+        public static void PrintExercise(int x, string desc)
+        {
+            // Printing format for exercise descriptions.
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("(Exercise {0}) ", x);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(desc);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine(String.Concat(Enumerable.Repeat("- ", 20)));
         }
 
     }

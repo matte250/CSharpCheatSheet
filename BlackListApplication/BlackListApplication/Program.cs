@@ -23,7 +23,7 @@ namespace BlackListApplication
              */
 
             blackListArray = new string[] {
-                "fuck","shit","ernes","hästar"
+                "fuck","shit","ernes","hästar","bög","fitta","kuk","mattiass","neger"
             };
             messages = new string[100];
             messageNumber = 0;
@@ -31,11 +31,12 @@ namespace BlackListApplication
             while (!str.Equals("stop"))
             {
                 Console.Clear();
+                PrintExercise(42, "String filter using blacklist.");
                 Console.WriteLine("Type \"stop\" to quit.\n");
 
                 foreach(string s in messages)
                 {
-                    if (s != null) Console.WriteLine(s);
+                    if (s != null) Console.WriteLine("       "+s);
                 }
 
                 Console.Write("Input: ");
@@ -59,6 +60,18 @@ namespace BlackListApplication
                 }
             }
             return str;
+        }
+
+        public static void PrintExercise(int x, string desc)
+        {
+            // Printing format for exercise descriptions.
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("(Exercise {0}) ", x);
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(desc);
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine(String.Concat(Enumerable.Repeat("- ", 20)));
         }
     }
 }
