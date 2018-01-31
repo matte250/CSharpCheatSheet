@@ -29,7 +29,7 @@ public class Example
     }
     static void RenderScreen(int iX, int iY, int color)
     {
-        string str = "cluck click click click";
+        string str = "Ernes is gay";
         ss.Speak(str);
         Console.ForegroundColor = (System.ConsoleColor)color;
         Console.SetCursorPosition(Math.Min(iX, MAX_X - str.Length), iY);

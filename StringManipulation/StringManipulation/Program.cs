@@ -63,7 +63,7 @@ namespace StringManipulation
             }
             
             Console.WriteLine(strTemp);
-
+            Console.Write(str);
             Console.ReadKey();
 
         }
