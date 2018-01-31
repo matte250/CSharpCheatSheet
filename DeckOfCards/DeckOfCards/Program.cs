@@ -93,11 +93,11 @@ namespace DeckOfCards
 
             while (tempA.Length != 0)
             {
-                int index = r.Next(tempA.Length - 1);
+                int index = r.Next(tempA.Length);
                 tempB[number] = tempA[index];
                 for (int i = index; i < tempA.Length; i++)
                 {
-                    tempA[i] = tempA[Math.Min(i + 1, tempA.Length - 1)];
+                    tempA[i] = tempA[Math.Min(i + 1, tempA.Length-1)];
                 }
                 Array.Resize(ref tempA, tempA.Length - 1);
                 number++;

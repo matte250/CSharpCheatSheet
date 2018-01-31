@@ -1,16 +1,20 @@
 ﻿using System;
+using System.Speech.Synthesis;
 using System.Threading;
 
 public class Example
 {
     const int MAX_X = 120;
     const int MAX_Y = 30;
+    static SpeechSynthesizer ss;
 
     public static void Main()
     {
         Random rnd = new Random();
         int x, y, color;
         Console.CursorVisible = false;
+        ss = new SpeechSynthesizer();
+
         do
         {
             Thread.Sleep(150);
@@ -25,9 +29,11 @@ public class Example
     }
     static void RenderScreen(int iX, int iY, int color)
     {
-        string str = "#metoo";
+        string str = "cluck click click click";
+        ss.Speak(str);
         Console.ForegroundColor = (System.ConsoleColor)color;
         Console.SetCursorPosition(Math.Min(iX, MAX_X - str.Length), iY);
         Console.Write(str);
+
     }
 }
