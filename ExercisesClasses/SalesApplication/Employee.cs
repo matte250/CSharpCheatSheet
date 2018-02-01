@@ -17,31 +17,17 @@ namespace SalesApplication
          */
 
         public List<Sales> sales;
-        private static string[] randomProductNames;
-        private static string[] randomFirstNames;
-        private static string[] randomLastNames;
-        static Random r;
 
         public Employee(string firstName, string lastName, int age) : base(firstName, lastName, age)
         {
-            r = new Random();
-            randomProductNames = new string[]
-            {
-                "Condoms", "Sack of potatoes", "Dank memes", "Fish", "Mullet", "Placenta", "Illegal software", "Drugs",
-                "Air freshner", "Centaur", "Hat", "Husband pillow", "Girlfriend pillow", "Oni chan", "Afro", "Black tar heroin",
-                "Dildo", "Dragons", "Cube", "Kinder eggs", "Skittles", "Fried chicken", "Waifu", "Mexicans", "Calories"
-            };
-            randomFirstNames = new string[]
-            {
-                "Bob","Mattias","Ernes","Philip","Filip","Memer"
-            };
+            
 
 
         }
 
         public Employee() : base()
         {
-            r = new Random();
+
         }
 
         public override string ToString()
@@ -87,13 +73,9 @@ namespace SalesApplication
 
         }
 
-        // Own code to add sales.
-        public void addRandomSale()
-
+        public void addSale(Sales sale)
         {
-            int ri = r.Next(randomProductNames.Length);
-            double rsa = r.NextDouble() * 1000;
-            sales.Add(new Sales(randomProductNames[ri], rsa,))
+            sales.Add(sale);       
         }
     }
 }

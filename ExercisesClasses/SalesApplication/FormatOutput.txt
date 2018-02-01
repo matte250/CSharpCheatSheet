@@ -1,0 +1,22 @@
+﻿Employe - Mattias Soroccos
+[Number of sales: 3	  Total	gross: 17.00$  ]
+	Client - Oscar Lindholm
+	Product: Meme		Gross: 12.00$
+	Client - Ernes Philipowich
+	Product: Condoms	Gross: 5.00$
+	Client - Paul Tennenberg
+	Product: Shit		Gross: 100.00$
+								(avg : 3$  )
+Employe - Mr. Cock	 	  
+[Number of sales: 5 	  Total	gross: 4000.00$]
+	Client - Lord Reinfeldt
+	Product: Meme		Gross: 1.00$
+	Client - Din Mamma
+	Product: Condoms	Gross: 3.00$
+	Client - Hitler Braun
+	Product: Shit		Gross: 0.00$
+	Client - Super Man
+	Product: Tits		Gross: 0.00$
+	Client - Ugandan Knuckles
+	Product: Balls		Gross: 0.00$
+					    (avg : 3.00$  )
