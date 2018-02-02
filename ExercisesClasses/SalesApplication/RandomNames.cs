@@ -20,26 +20,26 @@ namespace SalesApplication
             "Bob","Mattias","Ernes","Philip","Filip","Memer","Lord","Mr","Kevin","Alpha","Jesus","Timmy","Eric","Adolf",
             "Beth","Mathilda","Erin","Filicia","Filipia","Mavis","Pristess","Ms","Kathy","Zeta","Jasmine","Tina","Erika","Eva",
             "Alex","Baily","Charlie","Devin","Eli","Frances","Glenn","Harley","Jayden","Kelly","Logan","Monroe","Pheonix","Quinn",
-            "Rowan","Sage","Taylor","Val","Winter"
+            "Rowan","Sage","Taylor","Val","Winter","Salim"
         };
         public static string[] randomLastNames = new string[]
         {
             "Smith","Jones","Brown","Johnson","Williams","Miller","Taylor","Wilson","Davis","White","Clark","Hall","Thomas",
-            "Thompson","Moore","Hill","Walker","Andersson","Wright","Martin","Wood","Allen","Robinsson","Lewis","Scott",
+            "Thompson","Moore","Hill","Walker","Andersson","Wright","Martin","Wood","Allen","Robinsson","Lewis","Scott","Knuckles",
             "Young","Jacksson","Adams","Tryniski","Green","Evans","King","Baker","John","Harris","Robert","Campbell","James"
         };
 
-        public string FirstName()
+        public static string FirstName()
         {
             return randomFirstNames[r.Next(randomFirstNames.Length)];
         }
 
-        public string LastName()
+        public static string LastName()
         {
             return randomLastNames[r.Next(randomLastNames.Length)];
         }
 
-        public string ProductName()
+        public static string ProductName()
         {
             return randomProductNames[r.Next(randomProductNames.Length)];
         }

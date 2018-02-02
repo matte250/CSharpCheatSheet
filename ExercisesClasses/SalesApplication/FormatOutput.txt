@@ -1,4 +1,4 @@
-﻿Employe - Mattias Soroccos
+﻿Employe - Mattias Soroccos ,age 52
 [Number of sales: 3	  Total	gross: 17.00$  ]
 	Client - Oscar Lindholm
 	Product: Meme		Gross: 12.00$
@@ -8,8 +8,8 @@
 	Product: Shit		Gross: 100.00$
 								(avg : 3$  )
 Employe - Mr. Cock	 	  
-[Number of sales: 5 	  Total	gross: 4000.00$]
-	Client - Lord Reinfeldt
+[Number of sales: 5 	Total gross: 4000.00$ ]
+	Client - Lord Reinfeldt, age 53.
 	Product: Meme		Gross: 1.00$
 	Client - Din Mamma
 	Product: Condoms	Gross: 3.00$

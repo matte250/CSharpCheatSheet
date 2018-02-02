@@ -20,14 +20,14 @@ namespace SalesApplication
 
         public Employee(string firstName, string lastName, int age) : base(firstName, lastName, age)
         {
-            
 
+            sales = new List<Sales>();
 
         }
 
         public Employee() : base()
         {
-
+            sales = new List<Sales>();
         }
 
         public override string ToString()
@@ -70,7 +70,19 @@ namespace SalesApplication
 
         public void PrintSaleStatistics()
         {
-
+            foreach(Sales s in sales)
+            {
+                Client c = s.ClientSoldTo;
+                Console.CursorLeft = 5;
+                Console.WriteLine("Client - {0} {1}",c.FirstName,c.LastName);
+                Console.CursorLeft = 5;
+                Console.Write("Product: {0}", s.Name);
+                Console.CursorLeft = 35;
+                Console.WriteLine("Gross: {0:C}",s.SalesAmount);
+                
+            }
+            Console.WriteLine();
+            
         }
 
         public void addSale(Sales sale)
