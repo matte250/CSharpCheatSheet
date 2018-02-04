@@ -79,6 +79,7 @@ namespace SalesApplication
                 Console.Write("Product: {0}", s.Name);
                 Console.CursorLeft = 35;
                 Console.WriteLine("Gross: {0:C}",s.SalesAmount);
+                Console.WriteLine();
                 
             }
             Console.WriteLine();

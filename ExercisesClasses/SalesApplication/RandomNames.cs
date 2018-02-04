@@ -26,7 +26,8 @@ namespace SalesApplication
         {
             "Smith","Jones","Brown","Johnson","Williams","Miller","Taylor","Wilson","Davis","White","Clark","Hall","Thomas",
             "Thompson","Moore","Hill","Walker","Andersson","Wright","Martin","Wood","Allen","Robinsson","Lewis","Scott","Knuckles",
-            "Young","Jacksson","Adams","Tryniski","Green","Evans","King","Baker","John","Harris","Robert","Campbell","James"
+            "Young","Jacksson","Adams","Tryniski","Green","Evans","King","Baker","John","Harris","Robert","Campbell","James","Borgström",
+            "Soroccos","Philipowhich", "Filipovic"
         };
 
         public static string FirstName()
