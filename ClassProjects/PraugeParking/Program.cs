@@ -63,8 +63,10 @@ namespace PraugeParking
             for(int i = 0;i < a.Length; i++)
             {
                 // Loop thru parking to find reg. Cars
-                if(a[i].Contains)    
+                //if (a[i].Contains)
+
             }
+            return 0;
         }
 
         static void addVehicle(ref string[] a, string reg)
