@@ -93,7 +93,48 @@ class Program
                 if (!s.Contains(":") && s.Length < 10 && SearchVehicle(a, s) != -1)
                 {
                     // If input is legal.
-                    MoveVehicle(ref a, s, sn);
+                    int sn;
+                    Console.Write("Enter parking spot: ");
+                    if (Int32.TryParse(Console.ReadLine(), out sn) && sn <= 100 && sn >= 1)
+                    {
+                        // If second input is legal.
+                        MoveVehicle(ref a, s, sn-1);
+                    }
+                    else
+                    {
+                        // If second input is not legal.
+                        Console.WriteLine("Illegal input, make sure that your input only contains numbers," +
+                        " and that it does not exced the value of 100.");
+                        Console.ReadKey();
+                    }                        
+                }
+                else
+                {
+                    Console.WriteLine("Illegal input, make sure there is no colon(:) in your string," +
+                        " and that it does not contain more than 10 characters." +
+                        "\n Also make sure that your input does exist in the array.");
+                    Console.ReadKey();
+                }
+            }
+            if (menu.Equals('5'))
+            {
+                // Remove Vehicle.
+                Console.Write("Input reg#: ");
+                string s = Console.ReadLine();
+                if (!s.Contains(":") && s.Length < 10 && SearchVehicle(a, s) != -1)
+                {
+                    // If input is legal.
+                    int result = SearchVehicle(a, s);
+                    if(result != -1)
+                    {
+                        Console.WriteLine("Your vehicle({0}) can be found at parking spot {1}.", s, result+1);
+                        Console.ReadKey();
+                    }
+                    else
+                    {
+                        Console.WriteLine("{0} does not exist.");
+                        Console.ReadKey();
+                    }
                 }
                 else
                 {
@@ -181,7 +222,7 @@ class Program
                     else
                     {
                         // If im reg is located after the colon.
-                        a[regIndex] = a[regIndex].Substring(0, a[regIndex].IndexOf(":"));
+                        a[regIndex] = a[regIndex].Substring(0, a[regIndex].IndexOf(":")+1);
                     }
                 }
             }
@@ -236,7 +277,7 @@ class Program
             else if (a[to].Contains(":"))
             {
                 //If atlest one MC exists at index to.
-                if (a[to].IndexOf(":") == a.Length - 1)
+                if (a[to].EndsWith(":"))
                 {
                     // If index to contains only one MC.
                     if (a[regIndex].EndsWith(":"))
