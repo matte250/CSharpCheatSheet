@@ -12,7 +12,100 @@ class Program
         string[] parkingLot = new string[100];
         for (int i = 0; i < 100; i++) parkingLot[i] = "";
         SeedArray(ref parkingLot);
-        PrintState(parkingLot);
+        testMenu(ref parkingLot);
+
+    }
+
+    static void testMenu(ref string[] a)
+    {
+        char menu = '!';
+        do
+        {
+            // Menu start.
+            Console.CursorVisible = false;
+            Console.Beep();
+            Console.Clear();
+            // Print menu.
+            PrintState(a);
+            Console.WriteLine("\n1. Add car, 2. Add MC, 3. Remove Vehicle, 4. Move Vehicle, 5. Search Vehicle.");
+            // Option selction.
+            menu = Console.ReadKey().KeyChar;
+            Console.CursorLeft = 0;
+            if (menu.Equals('1'))
+            {
+                // Add car.
+                Console.Write("Input reg#: ");
+                string s = Console.ReadLine();
+                if (!s.Contains(":") && s.Length < 10 && SearchVehicle(a, s) == -1)
+                {
+                    // If input is legal.
+                    AddVehicle(ref a, s);
+                }
+                else
+                {
+                    Console.WriteLine("Illegal input, make sure there is no colon(:) in your string," +
+                        " and that it does not contain more than 10 characters." +
+                        "\n Also make sure that your input does not already exist in the array.");
+                    Console.ReadKey();
+                }
+            }
+            if (menu.Equals('2'))
+            {
+                // Add MC.
+                Console.Write("Input reg#: ");
+                string s = Console.ReadLine();
+                if (!s.Contains(":") && s.Length < 10 && SearchVehicle(a, s) == -1)
+                {
+                    // If input is legal.
+                    AddVehicle(ref a, s + ":");
+                }
+                else
+                {
+                    Console.WriteLine("Illegal input, make sure there is no colon(:) in your string," +
+                        " and that it does not contain more than 10 characters." +
+                        "\n Also make sure that your input does not already exist in the array.");
+                    Console.ReadKey();
+                }
+            }
+            if (menu.Equals('3'))
+            {
+                // Remove Vehicle.
+                Console.Write("Input reg#: ");
+                string s = Console.ReadLine();
+                if (!s.Contains(":") && s.Length < 10 && SearchVehicle(a, s) != -1)
+                {
+                    // If input is legal.
+                    RemoveVehicle(ref a, s );
+                }
+                else
+                {
+                    Console.WriteLine("Illegal input, make sure there is no colon(:) in your string," +
+                        " and that it does not contain more than 10 characters." +
+                        "\n Also make sure that your input does exist in the array.");
+                    Console.ReadKey();
+                }
+            }
+            if (menu.Equals('4'))
+            {
+                // Move Vehicle.
+                Console.Write("Input reg#: ");
+                string s = Console.ReadLine();
+                if (!s.Contains(":") && s.Length < 10 && SearchVehicle(a, s) != -1)
+                {
+                    // If input is legal.
+                    MoveVehicle(ref a, s, sn);
+                }
+                else
+                {
+                    Console.WriteLine("Illegal input, make sure there is no colon(:) in your string," +
+                        " and that it does not contain more than 10 characters." +
+                        "\n Also make sure that your input does exist in the array.");
+                    Console.ReadKey();
+                }
+            }
+
+
+        } while (!menu.Equals('x'));
 
     }
 
@@ -21,26 +114,31 @@ class Program
         if (reg.Contains(":"))
         {
             // If input reg is a MC.
+            bool b = false;
             for (int i = 0; i < a.Length; i++)
             {
                 // Look for MCs standing alone.
-                if (a[i].IndexOf(":") == a[i].Length - 1)
+                if (a[i].EndsWith(":"))
                 {
                     // If a MC is standing alone at current iteration.
                     a[i] = a[i] + reg.Replace(":", "");
-                    if (a[i].Equals("")) a[i] = reg;
+                    b = true;
                     break;
                 }
             }
-            for (int i = 0; i < a.Length; i++)
-            {
-                // If no MC was found alone, put at empty place.
-                if (a[i].Equals(""))
-                {
-                    a[i] = reg;
-                    break;
-                }
 
+            if (b==false)
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    // If no MC was found alone, put at empty place.
+                    if (a[i].Equals(""))
+                    {
+                        a[i] = reg;
+                        break;
+                    }
+
+                }
             }
 
         }
@@ -49,8 +147,11 @@ class Program
             // If input reg is a car.
             for (int i = 0; i < a.Length; i++)
             {
-                if (a[i].Equals("")) a[i] = reg;
-                break;
+                if (a[i].Equals(""))
+                {
+                    a[i] = reg;
+                    break;
+                }
             }
         }
     }
@@ -58,7 +159,7 @@ class Program
     static void RemoveVehicle(ref string[] a, string reg)
     {
         int regIndex = SearchVehicle(a, reg);
-        if(regIndex != -1)
+        if (regIndex != -1)
         {
             // If reg exists.
             if (a[regIndex].Contains(":"))
@@ -75,7 +176,7 @@ class Program
                     if (a[regIndex].Substring(0, a[regIndex].IndexOf(":")).Equals(reg))
                     {
                         // If MC reg is located before the colon.
-                        a[regIndex] = a[regIndex].Substring(a[regIndex].IndexOf(":")+1) + ":";
+                        a[regIndex] = a[regIndex].Substring(a[regIndex].IndexOf(":") + 1) + ":";
                     }
                     else
                     {
@@ -95,7 +196,7 @@ class Program
             if (a[i].Contains(":"))
             {
                 // If current position contains atleast one MC.
-                if (a[i].IndexOf(":") == a[i].Length - 1)
+                if (a[i].EndsWith(":"))
                 {
                     // If current position only contains one MC.
                     if (a[i].Replace(":", "").Equals(reg)) return i;
@@ -122,22 +223,23 @@ class Program
     static void MoveVehicle(ref string[] a, string reg, int to)
     {
         int regIndex = SearchVehicle(a, reg);
-        if(regIndex != -1)
+        if (regIndex != -1)
         {
             // If reg exists.
-            if(!a[to].Contains(":") || !a[regIndex].Contains(":"))
+            if (!a[to].Contains(":") || !a[regIndex].Contains(":"))
             {
                 // If index to or reg contains a car.
                 string temp = a[to];
                 a[to] = a[regIndex];
                 a[regIndex] = temp;
-            }else if (a[to].Contains(":"))
+            }
+            else if (a[to].Contains(":"))
             {
                 //If atlest one MC exists at index to.
-                if(a[to].IndexOf(":") == a.Length - 1)
+                if (a[to].IndexOf(":") == a.Length - 1)
                 {
                     // If index to contains only one MC.
-                    if(a[regIndex].IndexOf(":") == a[regIndex].Length - 1)
+                    if (a[regIndex].EndsWith(":"))
                     {
                         // If index of reg contains only one MC.
                         a[to] = a[to] + a[regIndex].Replace(":", "");
@@ -146,9 +248,10 @@ class Program
                     else
                     {
                         // If index of reg contains more than one MC.
-                        if (a[regIndex].Substring(0, a[regIndex].IndexOf(":")).Equals(reg)){
+                        if (a[regIndex].Substring(0, a[regIndex].IndexOf(":")).Equals(reg))
+                        {
                             // If reg is before colon at reg index.
-                            a[to] = a[to] + a[regIndex].Substring(0,a[regIndex].IndexOf(":"));
+                            a[to] = a[to] + a[regIndex].Substring(0, a[regIndex].IndexOf(":"));
                             a[regIndex] = a[regIndex].Substring(a[regIndex].IndexOf(":") + 1) + ":";
                         }
                         else
@@ -167,7 +270,7 @@ class Program
                     a[regIndex] = temp;
                 }
             }
-        }       
+        }
 
     }
 
