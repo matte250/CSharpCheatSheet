@@ -11,7 +11,7 @@ class Program
     {
         string[] parkingLot = new string[100];
         for (int i = 0; i < 100; i++) parkingLot[i] = "";
-        SeedArray(ref parkingLot);
+        //SeedArray(ref parkingLot);
         testMenu(ref parkingLot);
 
     }
@@ -23,11 +23,11 @@ class Program
         {
             // Menu start.
             Console.CursorVisible = false;
-            Console.Beep();
+            //Console.Beep();
             Console.Clear();
             // Print menu.
             PrintState(a);
-            Console.WriteLine("\n1. Add car, 2. Add MC, 3. Remove Vehicle, 4. Move Vehicle, 5. Search Vehicle, 6. Compress MCs.");
+            Console.WriteLine("\n1. Add car, 2. Add MC, 3. Remove Vehicle, 4. Move Vehicle, 5. Search Vehicle, 6. Compress MCs, 7. Add Random Vehicles.");
             // Option selction.
             menu = Console.ReadKey().KeyChar;
             Console.CursorLeft = 0;
@@ -144,11 +144,17 @@ class Program
                     Console.ReadKey();
                 }
             }
+
+            if (menu.Equals('7'))
+            {
+                SeedArray(ref a);
+                menu = '7';
+            }
+
             if (menu.Equals('6'))
             {
                 CompressMCs(ref a);
             }
-
 
         } while (!menu.Equals('x'));
 
@@ -325,7 +331,7 @@ class Program
 
     static void SeedArray(ref string[] a)
     {
-        Random rd = new Random(DateTime.Now.Millisecond);
+        Random rd = new Random();
         int index = rd.Next(0, 100);
 
 
@@ -336,8 +342,7 @@ class Program
                 a[index] = CreateVehicle(rd);
                 index = rd.Next(0, 100);
             }
-            else
-                i--;
+
         }
 
         for (int i = 0; i < 4; i++)
@@ -348,10 +353,7 @@ class Program
                 a[index] = CreateVehicle(rd) + ":";
                 index = rd.Next(0, 100);
             }
-            else
-            {
-                i--;
-            }
+
         }
 
         for (int i = 0; i < 4; i++)
@@ -362,10 +364,7 @@ class Program
                 a[index] = CreateVehicle(rd) + ":" + CreateVehicle(rd);
                 index = rd.Next(0, 100);
             }
-            else
-            {
-                i--;
-            }
+
         }
     }
 
