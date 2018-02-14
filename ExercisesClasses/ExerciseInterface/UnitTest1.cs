@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace SchoolAppTest
+namespace ExerciseInterface
 {
     [TestClass]
     public class UnitTest1
