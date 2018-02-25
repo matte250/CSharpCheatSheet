@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSize", "ConsoleSize\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadConsoleOutputs", "ReadConsoleOutputs\ReadConsoleOutputs.csproj", "{3A4C7A01-FECB-472F-A2EE-0C2ADE376CCF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Formating", "Formating\Formating.csproj", "{D8024D2C-D7C2-4EEC-BFFA-42003099DB86}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferenceArray", "ReferenceArray\ReferenceArray.csproj", "{2F1BFBD0-AB28-4343-BA75-D98B18FBCB87}"
 EndProject
 Global
@@ -41,10 +43,6 @@ Global
 		{3A4C7A01-FECB-472F-A2EE-0C2ADE376CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A4C7A01-FECB-472F-A2EE-0C2ADE376CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A4C7A01-FECB-472F-A2EE-0C2ADE376CCF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2F1BFBD0-AB28-4343-BA75-D98B18FBCB87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2F1BFBD0-AB28-4343-BA75-D98B18FBCB87}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2F1BFBD0-AB28-4343-BA75-D98B18FBCB87}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2F1BFBD0-AB28-4343-BA75-D98B18FBCB87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
