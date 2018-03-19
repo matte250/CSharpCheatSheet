@@ -334,7 +334,6 @@ class Program
         Random rd = new Random();
         int index = rd.Next(0, 100);
 
-
         for (int i = 0; i < 4; i++)
         {
             if (a[index].Equals(""))
@@ -342,7 +341,6 @@ class Program
                 a[index] = CreateVehicle(rd);
                 index = rd.Next(0, 100);
             }
-
         }
 
         for (int i = 0; i < 4; i++)
