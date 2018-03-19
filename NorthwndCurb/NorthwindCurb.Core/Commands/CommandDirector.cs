@@ -28,16 +28,30 @@ namespace NorthwindCurb.Core.Commands
             PrintTitle();
             Console.Write("> ");
             string[] input = Console.ReadLine().GetParams(); // TODO Add proper input check.
-            string inputHandler = input[0];
 
-            if (CommandRespiratory.InputHandleExists(inputHandler))
-            {
-                ICommand cmd = CommandRespiratory.GetFunction(inputHandler).Invoke(input.Skip(1).ToArray());
-                cmd.Execute();
-            }
+            DirectCommand(input);
 
             if(!input.Equals("exit")) Runner();
 
+        }
+
+        public void DirectCommand(string[] input)
+        {
+            string inputHandler = input[0];
+
+            try // Try running command.
+            {
+                if (CommandRespiratory.InputHandleExists(inputHandler))
+                {
+                    ICommand cmd = CommandRespiratory.GetFunction(inputHandler).Invoke(input.Skip(1).ToArray());
+                    cmd.Execute();
+                }
+            }
+            catch (CommandException e)
+            {
+                Console.WriteLine(e);
+            }
+            
         }
 
         private void PrintTitle()

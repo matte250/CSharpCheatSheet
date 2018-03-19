@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<commands>
+  <command>
+    <name>HelloWorld</name>
+    <description>
+      Displays "Hello World" to the console.
+    </description>
+  </command>
+  <command>
+    <name>ClearConsole</name>
+    <description>
+      Clears the console.
+    </description>
+  </command>
+</commands>

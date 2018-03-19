@@ -15,15 +15,15 @@ namespace NorthwindCurb.Core
     {
         static void Main(string[] args)
         {
-            // Test
-            string test = "Snopp [BAJS KORV] sugmig  ";
-            string[] ts = test.GetParams();
-            Console.WriteLine(test);
-            foreach(string s in ts)
-            {
-                Console.Write(s+" ");
-            }
-            Console.WriteLine("!");
+            //// Test
+            //string test = "Snopp [BAJS KORV] sugmig  ";
+            //string[] ts = test.GetParams();
+            //Console.WriteLine(test);
+            //foreach(string s in ts)
+            //{
+            //    Console.Write(s+" ");
+            //}
+            //Console.WriteLine("!");
             // Connection init.
             string connectionString =
             "Data Source=(local);Initial Catalog=NORTHWND;"

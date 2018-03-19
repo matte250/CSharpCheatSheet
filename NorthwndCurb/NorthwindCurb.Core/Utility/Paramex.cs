@@ -59,7 +59,9 @@ namespace NorthwindCurb.Core.Utility
 
         public static string FormatSpaces(this string str)
         {
+            str = str.Replace("\t", " ");
             str = str.Trim(' ');
+ 
             bool ignore = false;
             
             for (int i = 0; i < str.Length; i++)

@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,9 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\ClearConsole.cs" />
+    <Compile Include="Commands\CoreCommands\ClearConsole.cs" />
     <Compile Include="Commands\CommandDirector.cs" />
+    <Compile Include="Commands\CommandException.cs" />
     <Compile Include="Commands\CommandRespiratory.cs" />
+    <Compile Include="Commands\CoreCommands\Commands.cs" />
     <Compile Include="Commands\HelloWorld.cs" />
     <Compile Include="Commands\ICommand.cs" />
     <Compile Include="Commands\NorthwindCurbCommands\ICommandUndoable.cs" />
@@ -57,6 +60,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="CommandDescriptions.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
