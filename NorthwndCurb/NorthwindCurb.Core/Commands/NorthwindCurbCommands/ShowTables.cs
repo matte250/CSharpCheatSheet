@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NorthwindCurb.Core.Commands.NorthwindCurbCommands
 {
-    class ShowTables : Command
+    class ShowTables : ICommand
     {
 
         private string queryString = "SELECT TABLE_NAME FROM " +
@@ -19,7 +19,7 @@ namespace NorthwindCurb.Core.Commands.NorthwindCurbCommands
             this.connection = connection;
         }
 
-        public override void Execute(string[] args)
+        public void Execute()
         {
 
             SqlCommand command = new SqlCommand(queryString, connection);
@@ -34,15 +34,11 @@ namespace NorthwindCurb.Core.Commands.NorthwindCurbCommands
                 }
                 Console.WriteLine();
             }
-
+ 
             reader.Close();
             connection.Close();
 
         }
 
-        public override string GetDescription()
-        {
-            return "Shows all base tables in database.";
-        }
     }
 }

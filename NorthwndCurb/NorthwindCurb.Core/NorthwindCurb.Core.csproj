@@ -43,11 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ClearConsole.cs" />
-    <Compile Include="Commands\Command.cs" />
     <Compile Include="Commands\CommandDirector.cs" />
     <Compile Include="Commands\CommandRespiratory.cs" />
     <Compile Include="Commands\HelloWorld.cs" />
     <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\NorthwindCurbCommands\ICommandUndoable.cs" />
     <Compile Include="Commands\NorthwindCurbCommands\ShowTables.cs" />
     <Compile Include="Commands\TestCommand.cs" />
     <Compile Include="Program.cs" />

@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NorthwindCurb.Core
+namespace NorthwindCurb.Core.Commands.NorthwindCurbCommands
 {
-    interface ICommand
+    interface ICommandUndoable : ICommand
     {
-        void Execute();
+        void Undo();
     }
 }

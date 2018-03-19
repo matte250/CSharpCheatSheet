@@ -16,10 +16,14 @@ namespace NorthwindCurb.Core
         static void Main(string[] args)
         {
             // Test
-            string test = "Snopp";
-
+            string test = "Snopp [BAJS KORV] sugmig  ";
+            string[] ts = test.GetParams();
             Console.WriteLine(test);
-            Console.WriteLine(Paramex.GetParamCount(test));
+            foreach(string s in ts)
+            {
+                Console.Write(s+" ");
+            }
+            Console.WriteLine("!");
             // Connection init.
             string connectionString =
             "Data Source=(local);Initial Catalog=NORTHWND;"
@@ -33,9 +37,9 @@ namespace NorthwindCurb.Core
 
                 // Adding commands.
                 CommandRespiratory cr = new CommandRespiratory();
-                cr.AddCommand(new ClearConsole(), "clear");
-                cr.AddCommand(new HelloWorld(), "helloworld");
-                cr.AddCommand(st, "showtables");
+                cr.AddCommand("helloworld", typeof(HelloWorld), (string[] param) => new HelloWorld());
+                cr.AddCommand("clear", typeof(ClearConsole), (string[] param) => new ClearConsole());
+                cr.AddCommand("showtables", typeof(ShowTables), (string[] param) => new ShowTables(connection));
 
                 CommandDirector cd = new CommandDirector(cr);
                 cd.Title = "NORTHWND Test";

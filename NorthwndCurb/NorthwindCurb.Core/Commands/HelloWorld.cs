@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 namespace NorthwindCurb.Core.Commands
 {
-    class HelloWorld : Command
+    class HelloWorld : ICommand
     {
 
-        public override void Execute(string[] args)
+        public void Execute()
         {
             Console.WriteLine("Hello World!");
         }
 
-        public override string GetDescription()
-        {
-            return "";
-        }
     }
 }

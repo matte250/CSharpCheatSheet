@@ -14,7 +14,7 @@ namespace NorthwindCurb.Core.Utility
         static char ignoreSpaceStart = '[';
         static char ignoreSpaceEnd = ']';
 
-        public static int GetParamCount(string str) // TODO ecapsulate more.
+        public static int GetParamCount(this string str) // TODO ecapsulate more.
         {           
             int count = 0;
             if (!String.IsNullOrEmpty(str))
@@ -27,18 +27,30 @@ namespace NorthwindCurb.Core.Utility
             return count;
         }
 
-        public static string[] GetParams(string str)
+        public static string[] GetParams(this string str) // TODO handle uneven amount of brackets.
         {
             str = str.FormatSpaces();
-            int count = GetParamCount(str);
+            int count = GetParamCount(str)+1;
             string[] s = new string[count];
 
-            str = str.Substring(0, str.IndexOf(" ")+1);
             for(int i=0; i < count; i++)
             {
-                if (str[0].Equals(ignoreSpaceStart))
+                if (str.Contains(" "))
                 {
-
+                    if (!str[0].Equals(ignoreSpaceStart))
+                    {
+                        s[i] = str.Substring(0, str.IndexOf(" "));
+                        str = str.Remove(0, str.IndexOf(" ") + 1);
+                    }
+                    else
+                    {
+                        s[i] = str.Substring(1, str.IndexOf(ignoreSpaceEnd) - 1);
+                        str = str.Remove(0, str.IndexOf(ignoreSpaceEnd) + 2);
+                    }
+                }
+                else
+                {
+                    s[i] = str;
                 }
             }
 

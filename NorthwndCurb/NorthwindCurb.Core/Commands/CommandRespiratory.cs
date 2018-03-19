@@ -8,44 +8,41 @@ namespace NorthwindCurb.Core.Commands
 {
     class CommandRespiratory
     {
-        private List<ICommand> commands;
+        private Dictionary<string, Tuple<Type, Func<string[], ICommand>>> _commands = new Dictionary<string, Tuple<Type, Func<string[], ICommand>>>();
 
         public CommandRespiratory()
         {
-            commands = new List<ICommand>();
-        } 
 
-        public void AddCommand(ICommand cmd, string inputHandle)
+        }
+
+        public void AddCommand(string inputHandle, Type type, Func<string[], ICommand> func)
         {
-            string s = cmd.GetType().Name;
-            foreach(ICommand i in commands)
-            {
-                if (i.GetType().Name.Equals(s)) // Makes sure command does not already exist.
-                {
-                    throw new System.ArgumentException("Command already exists.");
-                }
-            }
-
-            cmd.InputHandle = inputHandle; // TODO Fix input handles(Kinda fixed).
-            commands.Add(cmd);
+            _commands.Add(inputHandle, new Tuple<Type, Func<string[], ICommand>>(type, func));
         }
 
         public void RemoveCommand(Type type)
         {
-            ICommand temp = null;
-            foreach(ICommand i in commands)
-            {
-                if (i.GetType().Name.Equals(type.GetType().Name)) temp = i;
-            }
-            if (temp != null) commands.Remove(temp);
+
         }
 
-        public List<ICommand> GetCommands()
+        public Func<string[], ICommand> GetFunction(string inputHandle)
         {
-            return commands;
+
+            return _commands[inputHandle].Item2;
+
+        }
+
+        public bool InputHandleExists(string inputHandle)
+        {
+
+            return _commands.ContainsKey(inputHandle);
+        }
+
+        public Type[] GetCommands()
+        {
+            return _commands.Select(kvp => kvp.Value.Item1).ToArray();
         }
 
     }
 
 }
-        

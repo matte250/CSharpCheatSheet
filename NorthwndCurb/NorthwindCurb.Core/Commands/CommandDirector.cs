@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NorthwindCurb.Core.Utility;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,12 @@ namespace NorthwindCurb.Core.Commands
 {
     class CommandDirector
     {
-        public CommandRespiratory SetCommandRespiratory { private get; set; }
+        public CommandRespiratory CommandRespiratory { get; set; }
         public string Title { get; set; }
 
         public CommandDirector(CommandRespiratory cr)
         {
-            SetCommandRespiratory = cr;
+            CommandRespiratory = cr;
             Title = "";
         }
 
@@ -26,17 +27,14 @@ namespace NorthwindCurb.Core.Commands
         {
             PrintTitle();
             Console.Write("> ");
-            string input = Console.ReadLine(); // TODO Add proper input check
+            string[] input = Console.ReadLine().GetParams(); // TODO Add proper input check.
+            string inputHandler = input[0];
 
-            foreach(ICommand i in SetCommandRespiratory.GetCommands())
+            if (CommandRespiratory.InputHandleExists(inputHandler))
             {
-                if (i.InputHandle.Equals(input))
-                {
-                    i.Execute(new string[0]);
-                }
+                ICommand cmd = CommandRespiratory.GetFunction(inputHandler).Invoke(input.Skip(1).ToArray());
+                cmd.Execute();
             }
-
-            if (input.Equals("commands")) Commands();
 
             if(!input.Equals("exit")) Runner();
 
@@ -52,10 +50,7 @@ namespace NorthwindCurb.Core.Commands
 
         private void Commands()
         {
-            foreach(ICommand i in SetCommandRespiratory.GetCommands())
-            {
-                Console.WriteLine("{0}\t\t-{1}",i.InputHandle,i.GetDescription());
-            }
+            
         }
 
     }
