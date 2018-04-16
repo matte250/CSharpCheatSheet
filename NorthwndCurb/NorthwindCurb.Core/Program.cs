@@ -25,13 +25,21 @@ namespace NorthwindCurb.Core
             //}
             //Console.WriteLine("!");
             // Connection init.
+            string str = Console.ReadLine();
+            switch (str)
+            {
+                case "lol":
+                    Console.WriteLine("ay lmao");
+                    break;
+            }
+
             string connectionString =
             "Data Source=(local);Initial Catalog=NORTHWND;"
             + "Integrated Security=true";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-
+                Paramex.GetParams("display [Order Details]");
                 // Commands init.
                 ShowTables st = new ShowTables(connection);
 
@@ -40,10 +48,15 @@ namespace NorthwindCurb.Core
                 cr.AddCommand("helloworld", typeof(HelloWorld), (string[] param) => new HelloWorld());
                 cr.AddCommand("clear", typeof(ClearConsole), (string[] param) => new ClearConsole());
                 cr.AddCommand("showtables", typeof(ShowTables), (string[] param) => new ShowTables(connection));
+                cr.AddCommand("display", typeof(Display), (string[] param) => new Display(param, connection));
 
                 CommandDirector cd = new CommandDirector(cr);
                 cd.Title = "NORTHWND Test";
                 cd.Start();
+
+
+
+                
 
             }
         }

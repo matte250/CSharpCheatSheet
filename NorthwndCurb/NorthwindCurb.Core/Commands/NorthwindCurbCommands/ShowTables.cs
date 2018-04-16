@@ -10,20 +10,20 @@ namespace NorthwindCurb.Core.Commands.NorthwindCurbCommands
     class ShowTables : ICommand
     {
 
-        private string queryString = "SELECT TABLE_NAME FROM " +
+        private string _queryString = "SELECT TABLE_NAME FROM " +
             "INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE='BASE TABLE'";
-        private SqlConnection connection;
+        private SqlConnection _connection;
 
         public ShowTables(SqlConnection connection)
         {
-            this.connection = connection;
+            _connection = connection;
         }
 
         public void Execute()
         {
 
-            SqlCommand command = new SqlCommand(queryString, connection);
-            connection.Open();
+            SqlCommand command = new SqlCommand(_queryString, _connection);
+            _connection.Open();
             SqlDataReader reader = command.ExecuteReader();
 
             while (reader.Read())
@@ -34,9 +34,9 @@ namespace NorthwindCurb.Core.Commands.NorthwindCurbCommands
                 }
                 Console.WriteLine();
             }
- 
+
             reader.Close();
-            connection.Close();
+            _connection.Close();
 
         }
 

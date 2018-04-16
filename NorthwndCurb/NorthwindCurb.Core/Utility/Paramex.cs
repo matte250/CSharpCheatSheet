@@ -45,7 +45,7 @@ namespace NorthwindCurb.Core.Utility
                     else
                     {
                         s[i] = str.Substring(1, str.IndexOf(ignoreSpaceEnd) - 1);
-                        str = str.Remove(0, str.IndexOf(ignoreSpaceEnd) + 2);
+                        str = str.Remove(0, str.IndexOf(ignoreSpaceEnd) + 1);
                     }
                 }
                 else
