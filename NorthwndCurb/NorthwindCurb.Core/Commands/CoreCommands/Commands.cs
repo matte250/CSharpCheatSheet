@@ -11,7 +11,7 @@ namespace NorthwindCurb.Core.Commands.CoreCommands
     {
         public Commands()
         {
-            ConfigurationManager.AppSettings.
+     
         }
 
         public void Execute()
