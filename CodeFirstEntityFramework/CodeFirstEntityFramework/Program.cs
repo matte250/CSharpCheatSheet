@@ -25,9 +25,12 @@ namespace CodeFirstEntityFramework
                 var query = from b in db.Blogs
                             orderby b.BlogName
                             select b;
+                var query2 = db.Blogs
+                    .Where(a => true)
+                    .OrderByDescending(a => a.BlogName);
 
                 Console.WriteLine("All blogs in the database:");
-                foreach (var item in query)
+                foreach (var item in query2)
                 {
                     Console.WriteLine(item.BlogName);
                 }
