@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0690FCE6-F64E-4A05-94AC-61831F309B38}</ProjectGuid>
+    <ProjectGuid>{8B69A484-08D3-4839-A879-F000E4C933C0}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>CodeFirstEntityFramework</RootNamespace>
-    <AssemblyName>CodeFirstEntityFramework</AssemblyName>
+    <RootNamespace>SoftUniExercise</RootNamespace>
+    <AssemblyName>SoftUniExercise</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -41,6 +41,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,22 +51,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201804180819110_InitialCreate.cs" />
-    <Compile Include="Migrations\201804180819110_InitialCreate.Designer.cs">
-      <DependentUpon>201804180819110_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Data\Models\Address.cs" />
+    <Compile Include="Data\Models\Department.cs" />
+    <Compile Include="Data\Models\Employee.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Data\Models\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Data\SoftUniContext.cs" />
+    <Compile Include="Data\Models\sysdiagrams.cs" />
+    <Compile Include="Data\Models\Town.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201804180819110_InitialCreate.resx">
-      <DependentUpon>201804180819110_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
